@@ -286,17 +286,17 @@ export default function PGAccommodation() {
     {
       question: "Are meals included in the rent?",
       answer:
-        "Yes, breakfast and dinner are included in the rent for all room types. We serve nutritious, homestyle meals with variety throughout the week.",
+        "Yes, breakfast, lunch and dinner are included in the rent for all room types. We serve nutritious, homestyle meals with variety throughout the week.",
     },
     {
       question: "What about security and safety?",
       answer:
-        "We have 24x7 security personnel, CCTV surveillance, and biometric entry system to ensure the safety of all residents. We also have fire safety equipment installed throughout the property.",
+        "We have 24x7  CCTV surveillance system to ensure the safety of all residents. We also have fire safety equipment installed throughout the property.",
     },
     {
       question: "How does the Refer and Earn program work?",
       answer:
-        "When you refer a friend who books a stay with us for at least 3 months, both you and your friend receive a discount of ₹2,500 on a month's rent. There's no limit to how many friends you can refer!",
+        "When you refer a friend who books a stay with us for at least 1 months, both you and your friend receive a Cash Back of ₹1000. There's no limit to how many friends you can refer!",
     },
     {
       question: "What documents are required for booking?",
@@ -305,7 +305,7 @@ export default function PGAccommodation() {
     },
   ]
 
-  const cities = ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai"]
+  // const cities = ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai"]
 
   const benefits = [
     {
@@ -587,15 +587,15 @@ export default function PGAccommodation() {
 
                 <div className="mt-6 grid grid-cols-3 gap-4">
                   <div className="text-center p-3 rounded-lg bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="text-2xl font-bold text-primary">500+</div>
+                    <div className="text-2xl font-bold text-primary">1000+</div>
                     <div className="text-sm text-muted-foreground">Happy Residents</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="text-2xl font-bold text-primary">6</div>
-                    <div className="text-sm text-muted-foreground">Cities</div>
+                    <div className="text-2xl font-bold text-primary">Hyderabad</div>
+                    {/* <div className="text-sm text-muted-foreground">Cities</div> */}
                   </div>
                   <div className="text-center p-3 rounded-lg bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="text-2xl font-bold text-primary">20+</div>
+                    <div className="text-2xl font-bold text-primary">Madhapur</div>
                     <div className="text-sm text-muted-foreground">Locations</div>
                   </div>
                 </div>
