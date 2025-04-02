@@ -42,6 +42,8 @@ import {
   Shield,
   Clock,
   Sparkles,
+  Microwave,
+  RefrigeratorIcon
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
@@ -193,15 +195,15 @@ export default function PGAccommodation() {
   }
 
   const roomTypes = [
-    // {
-    //   id: "single",
-    //   name: "Single Room",
-    //   price: "₹8,000/month",
-    //   description: "Comfortable single occupancy room with all basic amenities for privacy and comfort.",
-    //   features: ["Single Bed", "Study Table", "Wardrobe", "Attached Bathroom", "Daily Cleaning"],
-    //   image: "/placeholder.svg?height=300&width=500&text=Single+Room",
-    //   popular: true,
-    // },
+    {
+      id: "single",
+      name: "Single Room",
+      price: "₹8,000/month",
+      description: "Comfortable single occupancy room with all basic amenities for privacy and comfort.",
+      features: ["Single Bed", "Study Table", "Wardrobe", "Attached Bathroom", "Daily Cleaning"],
+      image: "/placeholder.svg?height=300&width=500&text=Single+Room",
+      popular: true,
+    },
     {
       id: "double",
       name: "Double Sharing",
@@ -227,28 +229,30 @@ export default function PGAccommodation() {
       name: "Triple Sharing",
       price: "₹10,000/month",
       description: "Budget-friendly option with shared accommodation for three people, ideal for students and Proffesional's.",
-      features: ["Three Beds", "Study Tables", "Wardrobes", "Attached Bathroom", "Common Area", "AC", "Non-AC", "TV-Screen"],
+      features: ["Three Beds", "Wardrobes", "Attached Bathroom", "Common Area", "AC", "Non-AC", "TV-Screen"],
       image: "/placeholder.svg?height=300&width=500&text=Triple+Sharing",
       popular: false,
     },
-    // {
-    //   id: "deluxe",
-    //   name: "Deluxe Room",
-    //   price: "₹12,000/month",
-    //   description: "Premium single occupancy room with enhanced amenities and comfort for those who want the best.",
-    //   features: ["Queen Bed", "Study Table", "Wardrobe", "Private Bathroom", "AC", "Premium Furniture"],
-    //   image: "/placeholder.svg?height=300&width=500&text=Deluxe+Room",
-    //   popular: true,
-    // },
+    {
+      id: "deluxe",
+      name: "Guest Room",
+      price: "₹1,800/Day",
+      description: "Premium single occupancy room with enhanced amenities and comfort for those who want the best.",
+      features: ["Queen Bed", "Study Table", "Wardrobe", "Private Bathroom", "AC", "Premium Furniture"],
+      image: "/placeholder.svg?height=300&width=500&text=Deluxe+Room",
+      popular: true,
+    },
   ]
 
   const amenities = [
     { icon: <Wifi className="h-6 w-6" />, name: "High-Speed WiFi" },
     { icon: <Utensils className="h-6 w-6" />, name: "Meals Included" },
-    { icon: <ShowerHead className="h-6 w-6" />, name: "Hot Water 24x7" },
+    { icon: <ShowerHead className="h-6 w-6" />, name: "Water 24x7" },
     { icon: <Tv className="h-6 w-6" />, name: "TV Lounge" },
     { icon: <Coffee className="h-6 w-6" />, name: "Coffee/Tea Bar" },
+    { icon: <Microwave className="h-6 w-6" />, name: "Microwave" },
     { icon: <MapPin className="h-6 w-6" />, name: "Prime Location" },
+    { icon: <RefrigeratorIcon className="h-6 w-6" />, name: "Refrigerator" },
   ]
 
   const testimonials = [
@@ -347,7 +351,7 @@ export default function PGAccommodation() {
             <div className="relative h-10 w-10 rounded-full bg-gradient-to-br from-primary to-amber-500 flex items-center justify-center">
               <Home className="h-6 w-6 text-white absolute" />
             </div>
-            <span className="text-xl font-bold">aashraya co-living</span>
+            <span className="text-xl font-bold">aashrayahospitalities</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -591,13 +595,13 @@ export default function PGAccommodation() {
                     <div className="text-sm text-muted-foreground">Happy Residents</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="text-2xl font-bold text-primary">Hyderabad</div>
-                    {/* <div className="text-sm text-muted-foreground">Cities</div> */}
-                  </div>
-                  <div className="text-center p-3 rounded-lg bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="text-2xl font-bold text-primary">Madhapur</div>
                     <div className="text-sm text-muted-foreground">Locations</div>
                   </div>
+                  {/* <div className="text-center p-3 rounded-lg bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="text-2xl font-bold text-primary">Madhapur,Hyderabad</div>
+                    <div className="text-sm text-muted-foreground">Locations</div>
+                  </div> */}
                 </div>
               </motion.div>
             </div>
@@ -1020,10 +1024,10 @@ export default function PGAccommodation() {
                   Our Story
                 </Badge>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
-                  About Aashraya Co-living
+                  About aashrayahospitalities
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Established in 2018, Aashraya Co-living has been providing quality accommodation to students and
+                  Established in 2015, aashrayahospitalities has been providing quality accommodation to students and
                   working professionals. Our mission is to create a comfortable living environment that feels like home
                   while building a vibrant community.
                 </p>
@@ -1042,7 +1046,7 @@ export default function PGAccommodation() {
                     </div>
                   </div>
                   <p className="italic text-muted-foreground">
-                    "Our goal is to provide not just a place to stay, but a community where you can thrive and make
+                    "Our goal is to provide not just a place to stay, but a home where you can thrive and make
                     lasting connections. We believe in creating spaces that nurture personal growth and social
                     interaction."
                   </p>
@@ -1058,7 +1062,7 @@ export default function PGAccommodation() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group">
                     <Image
-                      src="/placeholder.svg?height=300&width=300&text=PG+Building"
+                      src="images/placeholder/Aashray_2.png"
                       alt="PG Building"
                       width={300}
                       height={300}
@@ -1067,7 +1071,7 @@ export default function PGAccommodation() {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group">
                     <Image
-                      src="/placeholder.svg?height=300&width=300&text=Common+Area"
+                      src="images/placeholder/Aashray_4.png"
                       alt="Common Area"
                       width={300}
                       height={300}
@@ -1076,7 +1080,7 @@ export default function PGAccommodation() {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group">
                     <Image
-                      src="/placeholder.svg?height=300&width=300&text=Dining+Area"
+                      src="images/placeholder/Aashray_5.png"
                       alt="Dining Area"
                       width={300}
                       height={300}
@@ -1085,7 +1089,7 @@ export default function PGAccommodation() {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group">
                     <Image
-                      src="/placeholder.svg?height=300&width=300&text=Staff"
+                      src="images/placeholder/Aashray_6.png"
                       alt="Our Staff"
                       width={300}
                       height={300}
@@ -1125,7 +1129,7 @@ export default function PGAccommodation() {
                 Refer & Earn
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Refer your friends to Aashraya Co-living and both of you get rewarded with exciting discounts!
+                Refer your friends to aashrayahospitalities and both of you get rewarded with exciting discounts!
               </p>
             </motion.div>
 
@@ -1539,8 +1543,8 @@ export default function PGAccommodation() {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Phone</h3>
-                <p className="text-muted-foreground">+91 98765 43210</p>
-                <p className="text-muted-foreground">+91 98765 43211</p>
+                <p className="text-muted-foreground">+91 7306730666</p>
+                <p className="text-muted-foreground">+91 9948067966</p>
               </motion.div>
 
               <motion.div
@@ -1554,8 +1558,8 @@ export default function PGAccommodation() {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Email</h3>
-                <p className="text-muted-foreground">info@aashraya.co</p>
-                <p className="text-muted-foreground">bookings@aashraya.co</p>
+                <p className="text-muted-foreground">aashrayamenspg@gmail.com</p>
+                {/* <p className="text-muted-foreground">bookings@aashraya.co</p> */}
               </motion.div>
 
               <motion.div
@@ -1569,8 +1573,9 @@ export default function PGAccommodation() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Address</h3>
-                <p className="text-muted-foreground">123 Main Street, Sector 15</p>
-                <p className="text-muted-foreground">New Delhi, India - 110001</p>
+                <p className="text-muted-foreground">H.No: 1-98/9/3/74/2,</p>
+                <p className="text-muted-foreground">R.L Residency Jai Hind enclave,</p>
+                <p className="text-muted-foreground">Opp 4 Seasons indoor swimming pool</p>
               </motion.div>
             </div>
 
@@ -1653,7 +1658,7 @@ export default function PGAccommodation() {
                 <div className="relative h-8 w-8 rounded-full bg-gradient-to-br from-primary to-amber-500 flex items-center justify-center">
                   <Home className="h-4 w-4 text-white absolute" />
                 </div>
-                <span className="text-xl font-bold">Aashraya Co-living</span>
+                <span className="text-xl font-bold">aashrayahospitalities</span>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
                 Providing comfortable and affordable PG accommodation since 2018.
