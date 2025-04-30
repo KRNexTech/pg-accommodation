@@ -198,11 +198,11 @@ export default function PGAccommodation() {
     {
       id: "single",
       name: "Single Room",
-      price: "₹8,000/month",
+      price: "₹24,000/month",
       description: "Comfortable single occupancy room with all basic amenities for privacy and comfort.",
-      features: ["Single Bed", "Study Table", "Wardrobe", "Attached Bathroom", "Daily Cleaning"],
+      features: ["Single Bed", "Study Table", "Wardrobe", "Attached Bathroom", "Daily Cleaning","Extra Storage"],
       image: "/placeholder.svg?height=300&width=500&text=Single+Room",
-      popular: true,
+      popular: false,
     },
     {
       id: "double",
@@ -212,7 +212,7 @@ export default function PGAccommodation() {
       description: "Economical option with shared accommodation for two people, perfect for those who enjoy company.",
       features: ["Two Beds", "Study Tables","AC","Non-AC", "Wardrobes", "Attached-Bathroom", "Extra Storage", "TV-Screen","Room-Cleaning"],
       image: "/images/hero/hero_3.jpg",
-      popular: false,
+      popular: true,
     },
     // {
     //   id: "doubleAC",
@@ -230,7 +230,7 @@ export default function PGAccommodation() {
       price: "₹10,000/month",
       description: "Budget-friendly option with shared accommodation for three people, ideal for students and Proffesional's.",
       features: ["Three Beds", "Wardrobes", "Attached Bathroom", "Common Area", "AC", "Non-AC", "TV-Screen"],
-      image: "/placeholder.svg?height=300&width=500&text=Triple+Sharing",
+      image: "/images/placeholder/Three_Sharing.jpg",
       popular: false,
     },
     {
@@ -259,7 +259,7 @@ export default function PGAccommodation() {
     {
       name: "Rajveer Singh",
       occupation: "Product Consultant",
-      image: "images/testimonials/testimonials_1.jpeg",
+      image: "images/testimonials/testimonials_4.jpeg",
       comment:
         "Moving to Aashraya co-living was the best decision I made. The amenities are top-notch, and the community is amazing!",
       stars: 5,
@@ -269,7 +269,7 @@ export default function PGAccommodation() {
       occupation: "Marketing Executive",
       image: "/placeholder.svg?height=100&width=100&text=PP",
       comment: "I love the location and the vibrant community. It's more than just accommodation; it's a lifestyle.",
-      stars: 5,
+      stars: 4,
     },
     {
       name: "Aditya Singh",
@@ -335,7 +335,7 @@ export default function PGAccommodation() {
   ]
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-x-hidden">
       {/* Progress bar */}
       <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-gray-200 dark:bg-gray-800">
         <motion.div className="h-full bg-gradient-to-r from-primary to-amber-500" style={{ width: scrollProgress }} />
@@ -346,7 +346,7 @@ export default function PGAccommodation() {
           isScrolled ? "bg-background/95 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
         }`}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative h-10 w-10 rounded-full bg-gradient-to-br from-primary to-amber-500 flex items-center justify-center">
               <Home className="h-6 w-6 text-white absolute" />
@@ -426,7 +426,7 @@ export default function PGAccommodation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-background/95 backdrop-blur-md border-b"
+              className="md:hidden bg-background/95 backdrop-blur-md border-b fixed top-[72px] left-0 right-0 overflow-y-auto max-h-[calc(100vh-72px)]"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <button
@@ -492,7 +492,7 @@ export default function PGAccommodation() {
           <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-70 animate-pulse"></div>
           <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl opacity-70 animate-pulse delay-1000"></div>
 
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="flex flex-col md:flex-row items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -533,13 +533,16 @@ export default function PGAccommodation() {
 
                 <div className="mt-10 flex items-center space-x-5">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
+                    {[`/images/testimonials/testimonials_1.jpeg`, 
+                    `/images/testimonials/testimonials_2.jpeg`, 
+                    `/images/testimonials/testimonials_3.jpeg`, 
+                    `/images/testimonials/testimonials_4.jpeg`].map((i) => (
                       <div
                         key={i}
                         className="w-8 h-8 rounded-full border-2 border-background overflow-hidden shadow-md"
                       >
                         <Image
-                          src={`/placeholder.svg?height=30&width=30&text=${i}`}
+                          src={`${i}`}
                           alt="User"
                           width={30}
                           height={30}
@@ -555,7 +558,7 @@ export default function PGAccommodation() {
                       ))}
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      From <span className="font-medium">500+</span> reviews
+                      From <span className="font-medium">300+</span> reviews
                     </p>
                   </div>
                 </div>
@@ -564,22 +567,24 @@ export default function PGAccommodation() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="md:w-1/2"
+                className="md:w-1/2 w-full"
               >
-                <div className="relative">
+                <div className="relative w-full">
                   <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary/50 to-amber-500/50 blur-xl opacity-70 animate-pulse"></div>
                   <Carousel className="w-full max-w-lg mx-auto">
                     <CarouselContent>
                       {hero.map((hero, index) => (
                         <CarouselItem key={index}>
                           <div className="p-1">
-                            <Image
-                              src={hero}
-                              alt={`PG Accommodation ${index + 1}`}
-                              width={600}
-                              height={400}
-                              className="rounded-xl shadow-lg w-full aspect-video object-cover"
-                            />
+                            <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+                              <Image
+                                src={hero}
+                                alt={`PG Accommodation ${index + 1}`}
+                                width={600}
+                                height={400}
+                                className="object-cover w-full h-full"
+                              />
+                            </div>
                           </div>
                         </CarouselItem>
                       ))}
@@ -1108,7 +1113,7 @@ export default function PGAccommodation() {
           ref={(el) => {
             sectionRefs.current.refer = el
           }}
-          className="py-20 bg-muted/50 dark:bg-muted/10 relative overflow-hidden"
+          className="py-12 md:py-20 bg-muted/50 dark:bg-muted/10 relative overflow-hidden"
         >
           {/* Decorative elements */}
           <div className="absolute top-1/3 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-70"></div>
@@ -1120,20 +1125,20 @@ export default function PGAccommodation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center mb-16"
+              className="text-center mb-8 md:mb-16"
             >
               <Badge variant="outline" className="mb-4 text-primary border-primary bg-primary/5">
                 Rewards
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
                 Refer & Earn
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Refer your friends to aashrayahospitalities and both of you get rewarded with exciting discounts!
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -1143,48 +1148,48 @@ export default function PGAccommodation() {
                 <div className="relative">
                   <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary/50 to-amber-500/50 blur-xl opacity-70 animate-pulse"></div>
                   <Card className="relative overflow-hidden border-primary/10">
-                    <CardContent className="p-8">
+                    <CardContent className="p-4 md:p-8">
                       <div className="absolute -right-10 -top-10 bg-gradient-to-br from-primary/10 to-amber-500/10 w-40 h-40 rounded-full"></div>
                       <div className="absolute -left-10 -bottom-10 bg-gradient-to-br from-primary/10 to-amber-500/10 w-40 h-40 rounded-full"></div>
 
                       <div className="relative">
-                        <div className="flex items-center justify-center mb-6">
-                          <Gift className="h-12 w-12 text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-500" />
+                        <div className="flex items-center justify-center mb-4 md:mb-6">
+                          <Gift className="h-8 w-8 md:h-12 md:w-12 text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-500" />
                         </div>
-                        <h3 className="text-2xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
+                        <h3 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
                           How It Works
                         </h3>
 
-                        <ol className="space-y-4">
-                          <li className="flex items-start gap-4">
-                            <div className="rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                              <span className="font-bold text-primary">1</span>
+                        <ol className="space-y-3 md:space-y-4">
+                          <li className="flex items-start gap-3 md:gap-4">
+                            <div className="rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                              <span className="font-bold text-primary text-sm md:text-base">1</span>
                             </div>
                             <div>
-                              <h4 className="font-bold">Share Your Referral Code</h4>
-                              <p className="text-muted-foreground">
+                              <h4 className="font-bold text-base md:text-lg">Share Your Referral Code</h4>
+                              <p className="text-muted-foreground text-sm md:text-base">
                                 Share your unique referral code with friends who are looking for accommodation.
                               </p>
                             </div>
                           </li>
-                          <li className="flex items-start gap-4">
-                            <div className="rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                              <span className="font-bold text-primary">2</span>
+                          <li className="flex items-start gap-3 md:gap-4">
+                            <div className="rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                              <span className="font-bold text-primary text-sm md:text-base">2</span>
                             </div>
                             <div>
-                              <h4 className="font-bold">Friend Books a Stay</h4>
-                              <p className="text-muted-foreground">
+                              <h4 className="font-bold text-base md:text-lg">Friend Books a Stay</h4>
+                              <p className="text-muted-foreground text-sm md:text-base">
                                 When your friend books a stay with us for at least 1 months using Our code.
                               </p>
                             </div>
                           </li>
-                          <li className="flex items-start gap-4">
-                            <div className="rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                              <span className="font-bold text-primary">3</span>
+                          <li className="flex items-start gap-3 md:gap-4">
+                            <div className="rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                              <span className="font-bold text-primary text-sm md:text-base">3</span>
                             </div>
                             <div>
-                              <h4 className="font-bold">Both Get Rewarded</h4>
-                              <p className="text-muted-foreground">
+                              <h4 className="font-bold text-base md:text-lg">Both Get Rewarded</h4>
+                              <p className="text-muted-foreground text-sm md:text-base">
                                 Both you and your friend receive ₹1,000 Cash-Back!!
                               </p>
                             </div>
@@ -1203,12 +1208,12 @@ export default function PGAccommodation() {
                 transition={{ duration: 0.5 }}
               >
                 <Card className="border-primary/10 shadow-md hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
+                  <CardContent className="p-4 md:p-8">
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-500">
                       Your Referral Code
                     </h3>
-                    <div className="bg-gradient-to-br from-background to-muted/50 dark:from-muted/20 dark:to-background p-6 rounded-lg flex items-center justify-between mb-6 border border-primary/10">
-                      <span className="text-xl font-bold tracking-wider">{referralCode}</span>
+                    <div className="bg-gradient-to-br from-background to-muted/50 dark:from-muted/20 dark:to-background p-4 md:p-6 rounded-lg flex items-center justify-between mb-4 md:mb-6 border border-primary/10">
+                      <span className="text-lg md:text-xl font-bold tracking-wider">{referralCode}</span>
                       <Button
                         variant="ghost"
                         size="icon"
@@ -1216,25 +1221,25 @@ export default function PGAccommodation() {
                         className="rounded-full hover:bg-primary/10"
                       >
                         {referralCopied ? (
-                          <Check className="h-5 w-5 text-green-500" />
+                          <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500" />
                         ) : (
-                          <Copy className="h-5 w-5 text-primary" />
+                          <Copy className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                         )}
                       </Button>
                     </div>
 
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-4">
-                        <Share2 className="h-6 w-6 text-primary" />
+                    <div className="space-y-4 md:space-y-6">
+                      <div className="flex items-center gap-3 md:gap-4">
+                        <Share2 className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                         <div>
-                          <h4 className="font-bold">Share via</h4>
+                          <h4 className="font-bold text-base md:text-lg">Share via</h4>
                           <div className="flex gap-2 mt-2">
                             <Button
                               variant="outline"
                               size="sm"
-                              className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/5"
+                              className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/5 text-xs md:text-sm"
                             >
-                              <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                              <svg className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                               </svg>
                               Facebook
@@ -1242,9 +1247,9 @@ export default function PGAccommodation() {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/5"
+                              className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/5 text-xs md:text-sm"
                             >
-                              <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                              <svg className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 9.99 9.99 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                               </svg>
                               Twitter
@@ -1252,9 +1257,9 @@ export default function PGAccommodation() {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/5"
+                              className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/5 text-xs md:text-sm"
                             >
-                              <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                              <svg className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                               </svg>
                               LinkedIn
@@ -1263,24 +1268,24 @@ export default function PGAccommodation() {
                         </div>
                       </div>
 
-                      <div className="bg-gradient-to-br from-background to-muted/50 dark:from-muted/20 dark:to-background p-4 rounded-lg border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2">
+                      <div className="bg-gradient-to-br from-background to-muted/50 dark:from-muted/20 dark:to-background p-3 md:p-4 rounded-lg border border-primary/10">
+                        <h4 className="font-bold flex items-center gap-2 mb-2 text-base md:text-lg">
                           <ThumbsUp className="h-4 w-4 text-primary" /> Referral Benefits
                         </h4>
                         <ul className="space-y-2">
                           <li className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-primary mt-1" />
-                            <span className="text-sm">
+                            <Check className="h-3 w-3 md:h-4 md:w-4 text-primary mt-1" />
+                            <span className="text-xs md:text-sm">
                               Get ₹2,500 off on a month's rent for every successful referral
                             </span>
                           </li>
                           <li className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-primary mt-1" />
-                            <span className="text-sm">No limit on the number of referrals</span>
+                            <Check className="h-3 w-3 md:h-4 md:w-4 text-primary mt-1" />
+                            <span className="text-xs md:text-sm">No limit on the number of referrals</span>
                           </li>
                           <li className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-primary mt-1" />
-                            <span className="text-sm">
+                            <Check className="h-3 w-3 md:h-4 md:w-4 text-primary mt-1" />
+                            <span className="text-xs md:text-sm">
                               Your friend also gets ₹2,500 off on their first month's rent
                             </span>
                           </li>
@@ -1375,7 +1380,7 @@ export default function PGAccommodation() {
             <div className="max-w-3xl mx-auto">
               <Card className="border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-amber-500/5 pointer-events-none"></div>
-                <CardContent className="p-6 relative">
+                <CardContent className="p-4 sm:p-6 relative">
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -1387,7 +1392,7 @@ export default function PGAccommodation() {
                           name="name"
                           placeholder="Your full name"
                           required
-                          className="rounded-lg border-primary/20 focus:border-primary focus:ring-primary/20"
+                          className="w-full rounded-lg border-primary/20 focus:border-primary focus:ring-primary/20"
                         />
                       </div>
                       <div className="space-y-2">
