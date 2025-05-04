@@ -198,20 +198,20 @@ export default function PGAccommodation() {
     {
       id: "single",
       name: "Single Room",
-      price: "₹24,000/month",
+      price: "",
       description: "Comfortable single occupancy room with all basic amenities for privacy and comfort.",
-      features: ["Single Bed", "Study Table", "Wardrobe", "Attached Bathroom", "Daily Cleaning","Extra Storage"],
-      image: "/placeholder.svg?height=300&width=500&text=Single+Room",
+      features: ["Single Bed","Room-CLeaning","Fridge", "Study Table", "Wardrobe", "Attached Bathroom", "Daily Cleaning","Extra Storage", "Non-AC ₹24,000/month", "AC ₹26,000/month" ],
+      image: "/images/hero/hero_3.jpg",
       popular: false,
     },
     {
       id: "double",
       name: "Double Sharing",
-      price: "₹12,500/month",
+      // price: "₹12,500/month",
       refer :"1000 off",
       description: "Economical option with shared accommodation for two people, perfect for those who enjoy company.",
-      features: ["Two Beds", "Study Tables","AC","Non-AC", "Wardrobes", "Attached-Bathroom", "Extra Storage", "TV-Screen","Room-Cleaning"],
-      image: "/images/hero/hero_3.jpg",
+      features: ["Two Beds", "Study Tables","AC - ₹14000/month","Non-AC - ₹12,500/month", "Wardrobes", "Attached-Bathroom", "Extra Storage", "TV-Screen","Room-Cleaning"],
+      image: "/images/placeholder/Double_Sharing.jpg",
       popular: true,
     },
     // {
@@ -229,18 +229,18 @@ export default function PGAccommodation() {
       name: "Triple Sharing",
       price: "₹10,000/month",
       description: "Budget-friendly option with shared accommodation for three people, ideal for students and Proffesional's.",
-      features: ["Three Beds", "Wardrobes", "Attached Bathroom", "Common Area", "AC", "Non-AC", "TV-Screen"],
+      features: ["Three Beds", "Wardrobes", "Attached Bathroom", "Common Area", "AC", "Non-AC", "TV-Screen", "Extra-Storage Space"],
       image: "/images/placeholder/Three_Sharing.jpg",
-      popular: false,
+      popular: true,
     },
     {
       id: "deluxe",
       name: "Guest Room",
-      price: "₹1,800/Day",
+      price: "",
       description: "Premium single occupancy room with enhanced amenities and comfort for those who want the best.",
-      features: ["Queen Bed", "Study Table", "Wardrobe", "Private Bathroom", "AC", "Premium Furniture"],
+      features: ["Queen Bed", "Study Table", "Wardrobe", "Private Bathroom", "AC - ₹1,800/Day", "Non - AC - ₹1,500/Day", "Premium Furniture"],
       image: "/placeholder.svg?height=300&width=500&text=Deluxe+Room",
-      popular: true,
+      popular: false,
     },
   ]
 
@@ -255,38 +255,38 @@ export default function PGAccommodation() {
     { icon: <RefrigeratorIcon className="h-6 w-6" />, name: "Refrigerator" },
   ]
 
-  const testimonials = [
-    {
-      name: "Rajveer Singh",
-      occupation: "Product Consultant",
-      image: "images/testimonials/testimonials_4.jpeg",
-      comment:
-        "Moving to Aashraya co-living was the best decision I made. The amenities are top-notch, and the community is amazing!",
-      stars: 5,
-    },
-    {
-      name: "Priya Patel",
-      occupation: "Marketing Executive",
-      image: "/placeholder.svg?height=100&width=100&text=PP",
-      comment: "I love the location and the vibrant community. It's more than just accommodation; it's a lifestyle.",
-      stars: 4,
-    },
-    {
-      name: "Aditya Singh",
-      occupation: "College Student",
-      image: "/placeholder.svg?height=100&width=100&text=AS",
-      comment:
-        "As a student, I needed an affordable place with good facilities. Aashraya exceeded my expectations in every way.",
-      stars: 4,
-    },
-  ]
+  // const testimonials = [
+  //   {
+  //     name: "Rajveer Singh",
+  //     occupation: "Product Consultant",
+  //     image: "images/testimonials/testimonials_4.jpeg",
+  //     comment:
+  //       "Moving to Aashraya co-living was the best decision I made. The amenities are top-notch, and the community is amazing!",
+  //     stars: 5,
+  //   },
+  //   {
+  //     name: "Priya Patel",
+  //     occupation: "Marketing Executive",
+  //     image: "/placeholder.svg?height=100&width=100&text=PP",
+  //     comment: "I love the location and the vibrant community. It's more than just accommodation; it's a lifestyle.",
+  //     stars: 4,
+  //   },
+  //   {
+  //     name: "Aditya Singh",
+  //     occupation: "College Student",
+  //     image: "/placeholder.svg?height=100&width=100&text=AS",
+  //     comment:
+  //       "As a student, I needed an affordable place with good facilities. Aashraya exceeded my expectations in every way.",
+  //     stars: 4,
+  //   },
+  // ]
 
   const faqItems = [
-    {
-      question: "What is the minimum stay period?",
-      answer:
-        "The minimum stay period is 3 months for working professionals and 6 months for students. However, we do offer flexible options for shorter stays based on availability.",
-    },
+    // {
+    //   question: "What is the minimum stay period?",
+    //   answer:
+    //     "The minimum stay period is 2 months for working professionals and 2 months for students. However, we do offer flexible options for shorter stays based on availability.",
+    // },
     {
       question: "Are meals included in the rent?",
       answer:
@@ -791,12 +791,12 @@ export default function PGAccommodation() {
                         >
                           Book This Room
                         </Button>
-                        <Button
+                        {/* <Button
                           variant="outline"
                           className="rounded-full border-primary text-primary hover:bg-primary/10"
                         >
                           View Details
-                        </Button>
+                        </Button> */}
                       </div>
                     </div>
                   </motion.div>
@@ -943,8 +943,7 @@ export default function PGAccommodation() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-muted/30 dark:bg-muted/10 relative overflow-hidden">
-          {/* Decorative elements */}
+        {/* <section className="py-20 bg-muted/30 dark:bg-muted/10 relative overflow-hidden">
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-70"></div>
           <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl opacity-70"></div>
 
@@ -1006,7 +1005,7 @@ export default function PGAccommodation() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* About Us Section */}
         <section
@@ -1076,7 +1075,7 @@ export default function PGAccommodation() {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group">
                     <Image
-                      src="images/placeholder/Aashray_4.png"
+                      src="/images/placeholder/_DSC6100.jpg"
                       alt="Common Area"
                       width={300}
                       height={300}
@@ -1230,8 +1229,8 @@ export default function PGAccommodation() {
 
                     <div className="space-y-4 md:space-y-6">
                       <div className="flex items-center gap-3 md:gap-4">
-                        <Share2 className="h-5 w-5 md:h-6 md:w-6 text-primary" />
-                        <div>
+                        {/* <Share2 className="h-5 w-5 md:h-6 md:w-6 text-primary" /> */}
+                        {/* <div>
                           <h4 className="font-bold text-base md:text-lg">Share via</h4>
                           <div className="flex gap-2 mt-2">
                             <Button
@@ -1265,7 +1264,7 @@ export default function PGAccommodation() {
                               LinkedIn
                             </Button>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
 
                       <div className="bg-gradient-to-br from-background to-muted/50 dark:from-muted/20 dark:to-background p-3 md:p-4 rounded-lg border border-primary/10">
@@ -1276,7 +1275,7 @@ export default function PGAccommodation() {
                           <li className="flex items-start gap-2">
                             <Check className="h-3 w-3 md:h-4 md:w-4 text-primary mt-1" />
                             <span className="text-xs md:text-sm">
-                              Get ₹2,500 off on a month's rent for every successful referral
+                              Get ₹1000 off on a month's rent for every successful referral
                             </span>
                           </li>
                           <li className="flex items-start gap-2">
@@ -1286,7 +1285,7 @@ export default function PGAccommodation() {
                           <li className="flex items-start gap-2">
                             <Check className="h-3 w-3 md:h-4 md:w-4 text-primary mt-1" />
                             <span className="text-xs md:text-sm">
-                              Your friend also gets ₹2,500 off on their first month's rent
+                              Your friend also gets ₹1,000 off on their first month's rent
                             </span>
                           </li>
                         </ul>
@@ -1666,7 +1665,7 @@ export default function PGAccommodation() {
                 <span className="text-xl font-bold">aashrayahospitalities</span>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
-                Providing comfortable and affordable PG accommodation since 2018.
+                Providing comfortable and affordable PG accommodation since 2015.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-300">
@@ -1781,7 +1780,7 @@ export default function PGAccommodation() {
                 <li className="text-sm text-muted-foreground">Telangana 500081</li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <h3 className="font-bold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
@@ -1817,7 +1816,7 @@ export default function PGAccommodation() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
           <div className="border-t border-primary/10 mt-8 pt-8 text-center">
             <p className="text-sm text-muted-foreground">
