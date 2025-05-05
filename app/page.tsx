@@ -109,10 +109,20 @@ export default function PGAccommodation() {
   const scrollToSection = (sectionId: keyof typeof sectionRefs.current) => {
     const element = sectionRefs.current[sectionId]
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: "smooth",
-      })
+      try {
+        const headerOffset = 80 // Height of the fixed header
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
+      } catch (error) {
+        console.error("Error scrolling to section:", error)
+        // Fallback to basic scroll
+        element.scrollIntoView({ behavior: "smooth" })
+      }
     }
     setMobileMenuOpen(false)
   }
@@ -154,20 +164,21 @@ export default function PGAccommodation() {
 
       const result = await response.json()
 
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to submit form")
+      }
+
       if (result.success) {
         toast.success("Booking Request Submitted", {
           description: "We'll contact you shortly to confirm your booking.",
         })
-        // Reset form
-        e.currentTarget.reset()
-      } else {
-        toast.error("Submission Failed", {
-          description: result.message || "Please try again later.",
-        })
+        // Reset form using the form element from the event
+        const form = e.target as HTMLFormElement
+        form.reset()
       }
     } catch (error) {
       toast.error("Submission Error", {
-        description: "There was a problem submitting your request. Please try again.",
+        description: error instanceof Error ? error.message : "There was a problem submitting your request. Please try again.",
       })
     } finally {
       setIsSubmitting(false)
@@ -514,21 +525,54 @@ export default function PGAccommodation() {
                   our community today!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    onClick={() => scrollToSection("booking")}
-                    className="gap-2 rounded-full bg-gradient-to-r from-primary to-amber-500 hover:from-primary/90 hover:to-amber-500/90 transition-all duration-300 shadow-md hover:shadow-lg"
+                  <Link
+                    href="#booking"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const bookingSection = document.getElementById('booking');
+                      if (bookingSection) {
+                        const headerOffset = 80;
+                        const elementPosition = bookingSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        // Close mobile menu if open
+                        setMobileMenuOpen(false);
+                        
+                        // Smooth scroll to section
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-amber-500 hover:from-primary/90 hover:to-amber-500/90 transition-all duration-300 shadow-md hover:shadow-lg px-6 py-3 text-base font-medium text-white"
                   >
                     Book Now <Calendar className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={() => scrollToSection("contact")}
-                    className="gap-2 rounded-full border-primary text-primary hover:bg-primary/10 transition-all duration-300"
+                  </Link>
+                  <Link
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        const headerOffset = 80;
+                        const elementPosition = contactSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        // Close mobile menu if open
+                        setMobileMenuOpen(false);
+                        
+                        // Smooth scroll to section
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-6 py-3 text-base font-medium"
                   >
                     <Phone className="h-4 w-4" /> Contact Us
-                  </Button>
+                  </Link>
                 </div>
 
                 <div className="mt-10 flex items-center space-x-5">
@@ -1045,7 +1089,7 @@ export default function PGAccommodation() {
                       <User className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-bold">Vikram Mehta</h3>
+                      <h3 className="font-bold">Vunnam Rajasekhar</h3>
                       <p className="text-sm text-muted-foreground">Owner</p>
                     </div>
                   </div>
@@ -1493,7 +1537,14 @@ export default function PGAccommodation() {
                       className="w-full rounded-full bg-gradient-to-r from-primary to-amber-500 hover:from-primary/90 hover:to-amber-500/90 transition-all duration-300 shadow-md hover:shadow-lg"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Submitting..." : "Book Now"}
+                      {isSubmitting ? (
+                        <div className="flex items-center gap-2">
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                          Submitting...
+                        </div>
+                      ) : (
+                        "Book Now"
+                      )}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">
                       By submitting this form, you agree to our{" "}
